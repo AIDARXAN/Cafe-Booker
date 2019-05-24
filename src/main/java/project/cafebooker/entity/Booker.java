@@ -21,10 +21,10 @@ public class Booker {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id")
             )
-    private Collection<Cafe> cafes;
+    private Cafe cafes;
 
     Booker(){}
-    public Booker(String customer, Date date, Collection<Cafe> cafes) {
+    public Booker(String customer, Date date, Cafe cafes) {
         this.customer = customer;
         this.date = date;
         this.cafes = cafes;
@@ -54,11 +54,11 @@ public class Booker {
         this.date = date;
     }
 
-    public Collection<Cafe> getCafes() {
+    public Cafe getCafes() {
         return cafes;
     }
 
-    public void setCafes(Collection<Cafe> cafes) {
+    public void setCafes(Cafe cafes) {
         this.cafes = cafes;
     }
 }
