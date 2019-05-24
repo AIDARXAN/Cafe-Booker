@@ -1,4 +1,4 @@
-package project.cafebooker.service;
+package project.cafebooker.service.implementation;
 
 import org.springframework.stereotype.Component;
 import project.cafebooker.entity.Course;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class StudentService {
+public class StudentServiceImp {
 
     private static List<Student> students = new ArrayList<>();
 

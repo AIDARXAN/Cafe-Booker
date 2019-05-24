@@ -48,11 +48,4 @@ public class Student {
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "Student [id=%s, name=%s, description=%s, courses=%s]", id,
-                name, description, courses);
-    }
 }
