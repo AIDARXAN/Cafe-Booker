@@ -1,6 +1,7 @@
 package project.cafebooker.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "cafe")
@@ -13,6 +14,16 @@ public class Cafe {
     private String customer;
     private int places;
     private int price;
+    private Date date;
+
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     Cafe(){
 
@@ -58,10 +69,11 @@ public class Cafe {
         this.price = price;
     }
 
-    public Cafe(String name, String customer, int places, int price) {
+    public Cafe(String name, String customer, int places, int price, Date date) {
         this.name = name;
         this.customer = customer;
         this.places = places;
         this.price = price;
+        this.date = date;
     }
 }

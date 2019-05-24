@@ -2,10 +2,14 @@ package project.cafebooker.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import project.cafebooker.entity.Cafe;
 import project.cafebooker.repo.CafeRepository;
 import project.cafebooker.service.ICafeService;
 
+import java.util.List;
+
+@Service
 public class CafeServiceImpl implements ICafeService {
 
     @Autowired
@@ -19,6 +23,11 @@ public class CafeServiceImpl implements ICafeService {
         return cafe;
     }
 
+    @Override
+    public List<Cafe> getAllCafes(){
+        List<Cafe> list = cafeRepository.findAll();
+        return list;
+    }
     @Override
     public Cafe createCafe(Cafe cafe){
         if (cafeRepository.findByName(cafe.getName()) != null)
