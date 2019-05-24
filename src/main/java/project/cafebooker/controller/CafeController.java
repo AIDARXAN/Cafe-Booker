@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import project.cafebooker.entity.Cafe;
 import project.cafebooker.service.ICafeService;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/cafe")
+@RequestMapping("cafe")
 public class CafeController {
     @Autowired
     ICafeService cafeService;
@@ -18,14 +20,21 @@ public class CafeController {
         return foundCafe;
     }
 
+    @GetMapping(value = "getAll",
+            produces = "application/json")
+    public List<Cafe> getAllCafes(){
+        List<Cafe> cafes = cafeService.getAllCafes();
+        return cafes;
+    }
     @PostMapping(
             value = "/admin",
-            consumes = "applicatoin/json",
+            consumes = "application/json",
             produces = "application/json")
     public Cafe createCafe(@RequestBody Cafe cafe){
         cafeService.createCafe(cafe);
         return cafe;
     }
+
 
     @PutMapping(
             value = "/admin",

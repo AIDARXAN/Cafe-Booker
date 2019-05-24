@@ -11,19 +11,11 @@ public class Cafe {
     private int id;
 
     private String name;
-    private String customer;
     private int places;
     private int price;
-    private Date date;
 
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     Cafe(){
 
@@ -45,13 +37,6 @@ public class Cafe {
         this.name = name;
     }
 
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
-    }
 
     public int getPlaces() {
         return places;
@@ -69,11 +54,11 @@ public class Cafe {
         this.price = price;
     }
 
-    public Cafe(String name, String customer, int places, int price, Date date) {
+    public Cafe(String name, int places, int price) {
         this.name = name;
-        this.customer = customer;
+
         this.places = places;
         this.price = price;
-        this.date = date;
+
     }
 }
