@@ -18,8 +18,8 @@ public class BookerController {
     @GetMapping(value = "books",
             produces = "application/json"
         )
-    public List<Booker> getBooks(@RequestParam(name = "customer", required = false) String customer){
-        List<Booker> list = bookService.getBook(customer);
+    public List<Booker> getAllBooks(){
+        List<Booker> list = bookService.getAllBooks();
         return list;
     }
 

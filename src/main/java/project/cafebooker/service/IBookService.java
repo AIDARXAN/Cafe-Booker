@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface IBookService {
-    public List<Booker> getBook(String customer);
+    public List<Booker> getAllBooks();
     public Booker createBook(String customer, Date date, int id, Booker booker);
     public HttpStatus deleteBook(Date date);
 

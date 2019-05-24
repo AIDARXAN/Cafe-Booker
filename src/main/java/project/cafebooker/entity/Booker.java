@@ -13,21 +13,13 @@ public class Booker {
     private String customer;
     private Date date;
 
-    @ManyToMany
-    @JoinTable(
-            name = "cafe",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id")
-            )
-    private Cafe cafes;
+    private String cafe;
 
     Booker(){}
-    public Booker(String customer, Date date, Cafe cafes) {
+    public Booker(String customer, Date date, String cafe) {
         this.customer = customer;
         this.date = date;
-        this.cafes = cafes;
+        this.cafe = cafe;
     }
 
     public int getId() {
@@ -54,11 +46,11 @@ public class Booker {
         this.date = date;
     }
 
-    public Cafe getCafes() {
-        return cafes;
+    public String getCafe() {
+        return cafe;
     }
 
-    public void setCafes(Cafe cafes) {
-        this.cafes = cafes;
+    public void setCafe(String cafe) {
+        this.cafe = cafe;
     }
 }

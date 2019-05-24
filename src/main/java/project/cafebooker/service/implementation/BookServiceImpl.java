@@ -20,20 +20,20 @@ public class BookServiceImpl implements IBookService {
     CafeRepository cafeRepository;
 
     @Override
-    public List<Booker> getBook(String customer){
-        if(bookRepository.findByCustomer(customer) == null)
-            throw new RuntimeException("You don't have any books");
+    public List<Booker> getAllBooks(){
         List<Booker> list = bookRepository.findAll();
         return list;
     }
 
     @Override
     public Booker createBook(String customer, Date date, int id, Booker booker){
-        if (bookRepository.findByDate(booker.getDate()) != null)
+        booker.setDate(date);
+        if (bookRepository.findByDate(booker.getDate()) != null) {
             throw new RuntimeException("This cafe is already busy");
+        }
         booker.setCustomer(customer);
         Cafe cafe = cafeRepository.findById(id);
-        booker.setCafes(cafe);
+        booker.setCafe(cafe.getName());
         bookRepository.save(booker);
         return booker;
     }

@@ -14,8 +14,8 @@ public class Cafe {
     private String name;
     private int places;
     private int price;
-    @ManyToMany(mappedBy = "cafes")
-    private Collection<Booker> bookers;
+
+
 
 
 
@@ -23,13 +23,7 @@ public class Cafe {
 
     }
 
-    public Collection<Booker> getBookers() {
-        return bookers;
-    }
 
-    public void setBookers(Collection<Booker> bookers) {
-        this.bookers = bookers;
-    }
 
     public int getId() {
         return id;
@@ -64,9 +58,9 @@ public class Cafe {
         this.price = price;
     }
 
-    public Cafe(String name, int places, int price, Collection<Booker> bookers) {
+    public Cafe(String name, int places, int price) {
         this.name = name;
-        this.bookers = bookers;
+
         this.places = places;
         this.price = price;
 
