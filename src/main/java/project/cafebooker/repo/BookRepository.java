@@ -10,4 +10,6 @@ import java.util.Date;
 public interface BookRepository extends JpaRepository<Booker, Long> {
     public Booker findByDate(Date Date);
     public Booker findByCustomer(String customer);
+    public Booker findByCafe(String cafe);
+    public Booker findById(int id);
 }

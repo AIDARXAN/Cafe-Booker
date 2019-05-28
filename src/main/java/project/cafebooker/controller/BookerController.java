@@ -27,18 +27,18 @@ public class BookerController {
         consumes = "application/json",
             produces = "application/json"
     )
-    public Booker createBook(@RequestParam(name = "customer", required = true) String customer,
-                             @RequestParam(name = "Date", required = true)Date date,
-                             @RequestParam(name = "id", required = true) int id,
+    public Booker createBook(@RequestParam(name = "customer", required = false) String customer,
+                             @RequestParam(name = "Date", required = false) Date date,
+                             @RequestParam(name = "id", required = false) int id,
                              @RequestBody Booker booker){
 
-        bookService.createBook(customer, date, id,booker);
+        bookService.createBook(customer, date, id, booker);
         return booker;
     }
 
     @DeleteMapping(value = "books")
-    public HttpStatus deleteBook(@RequestParam(name = "date", required = true) Date date){
-        bookService.deleteBook(date);
+    public HttpStatus deleteBook(@RequestParam(name = "id", required = false) int id){
+        bookService.deleteBook(id);
         return HttpStatus.OK;
     }
 }

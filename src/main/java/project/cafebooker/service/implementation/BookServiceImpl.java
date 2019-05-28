@@ -28,21 +28,21 @@ public class BookServiceImpl implements IBookService {
     @Override
     public Booker createBook(String customer, Date date, int id, Booker booker){
         booker.setDate(date);
-        if (bookRepository.findByDate(booker.getDate()) != null) {
+        Cafe cafe = cafeRepository.findById(id);
+        booker.setCafe(cafe.getName());
+        if (bookRepository.findByDate(booker.getDate()) != null && bookRepository.findByCafe(booker.getCafe()) != null) {
             throw new RuntimeException("This cafe is already busy");
         }
         booker.setCustomer(customer);
-        Cafe cafe = cafeRepository.findById(id);
-        booker.setCafe(cafe.getName());
         bookRepository.save(booker);
         return booker;
     }
 
     @Override
-    public HttpStatus deleteBook(Date date){
-        if (bookRepository.findByDate(date) == null)
+    public HttpStatus deleteBook(int id){
+        if (bookRepository.findById(id) == null)
             throw new RuntimeException("Record not found");
-        Booker booker = bookRepository.findByDate(date);
+        Booker booker = bookRepository.findById(id);
         bookRepository.delete(booker);
         return HttpStatus.OK;
     }
