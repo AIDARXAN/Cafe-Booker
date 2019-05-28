@@ -11,3 +11,6 @@ Delete https://localhost:8080/cafe/admin?name?cafename
 Get https://localhost:8080/cafe/books
 Post localhost:8080/cafe/books?cutsomer=CustName&Date=date&id=cafeId  @RequestBody
 Delete https://localhost:8080/cafe/books?id=BookID 
+
+Deployed on heroku
+https://cafebooker-aidar.herokuapp.com/
